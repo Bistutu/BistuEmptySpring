@@ -45,15 +45,15 @@
 > 代码遵循 Spring Boot 通用的项目目录结构
 
 ```shell
-├── compus				校区逻辑代码
-├── config				网络框架配置信息
-├── controller		接口
-├── entity				实体类
-├── helper				一些加解密与编解码工具
-├── process				教务网登录模块
-├── service				服务方法
-├── timer					定时器，用于定时向教务网获取空教室数据
-└── utils					工具
+├── compus	校区逻辑代码
+├── config	网络框架配置信息
+├── controller	接口
+├── entity	实体类
+├── helper	一些加解密与编解码工具
+├── process	教务网登录模块
+├── service	服务方法
+├── timer	定时器，用于定时向教务网获取空教室数据
+└── utils	工具
 ```
 
 ## 开发者
