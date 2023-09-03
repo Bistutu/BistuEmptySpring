@@ -1,6 +1,6 @@
 # BISTU空教室查询项目——后端
 
-> 项目后端项目采用 Java 框架 Spring Boot 编写，历经 4 次重构，目前并不完善。
+> 项目后端采用 Java 框架 Spring Boot 编写，历经 4 次重构，目前并不完善。
 
 ## 简介
 
@@ -45,7 +45,7 @@
 > 代码遵循 Spring Boot 通用的项目目录结构
 
 ```shell
-├── compus	校区逻辑代码
+├── campus	校区逻辑代码
 ├── config	网络框架配置信息
 ├── controller	接口
 ├── entity	实体类
