@@ -20,7 +20,7 @@
 1. 克隆该仓库
 
    ```shell
-   git clone https://github.com/yourusername/your-repo-name.git
+   git clone https://github.com/Bistutu/BistuEmptySpring.git
    ```
 2. 修改 `application.yaml` 配置文件
 
