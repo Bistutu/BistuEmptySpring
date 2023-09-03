@@ -6,7 +6,7 @@
 
 该项目是用于查询 BISTU 空闲教室的Spring后端服务，该服务提供了简单易用的API，方便前端或其他服务进行调用，代码具体操作流程如下：
 
-<img src="https://oss.thinkstu.com/typora/202309031607060.png?x-oss-process=style/optimize" alt="image-20230903160734038" style="zoom:30%;" />
+<img src="https://oss.thinkstu.com/typora/202309031607060.png?x-oss-process=style/optimize" alt="image-20230903160734038" width="33%" />
 
 ## 环境要求
 
@@ -36,7 +36,7 @@
    saved_path: "./data/"
    ```
 
-   <img src="https://oss.thinkstu.com/typora/202309031606222.png?x-oss-process=style/optimize" alt="image-20230903160608131" style="zoom:50%;" />
+   <img src="https://oss.thinkstu.com/typora/202309031606222.png?x-oss-process=style/optimize" alt="image-20230903160608131" width="50%" />
 
 3. 直接运行项目
 
