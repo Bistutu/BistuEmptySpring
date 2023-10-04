@@ -43,7 +43,7 @@ public class MonitorController {
         Integer times = Integer.parseInt(forward.substring(forward.length() - 1));
         if (times == 1 || times == 2 || times == 5 || times == 8) {
             log.info("{}=》第 {} 次访问：{}", ip, count++, forward);    // 访问自增1
-            path = pathInitial.getPath() + "1" + File.separator + forward + ".json";
+//            path = pathInitial.getPath() + "1" + File.separator + forward + ".json";
         }
         return new cn.hutool.core.io.file.FileReader(path).readString();
     }
