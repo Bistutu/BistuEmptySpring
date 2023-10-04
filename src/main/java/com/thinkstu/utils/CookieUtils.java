@@ -1,11 +1,13 @@
 package com.thinkstu.utils;
 
 import com.thinkstu.service.*;
+import kotlin.*;
 import lombok.extern.slf4j.*;
 import okhttp3.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 
+import javax.net.ssl.*;
 import java.io.*;
 import java.util.*;
 
@@ -54,6 +56,44 @@ public class CookieUtils {
      * 该函数的作用：保持 cookie 最新！
      */
     public String check(String cookie) {
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        try {
+            // 忽略证书信任
+            final TrustManager[] trustAllCerts = new TrustManager[]{
+                    new X509TrustManager() {
+                        @Override
+                        public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) {
+                        }
+
+                        @Override
+                        public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) {
+                        }
+
+                        @Override
+                        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                            return new java.security.cert.X509Certificate[]{};
+                        }
+                    }
+            };
+            // Install the all-trusting trust manager
+            final SSLContext sslContext = SSLContext.getInstance("SSL");
+            sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
+            // Create an ssl socket factory with our all-trusting manager
+            final SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
+            builder.sslSocketFactory(sslSocketFactory, (X509TrustManager) trustAllCerts[0]);
+            builder.hostnameVerifier(new HostnameVerifier() {
+                @Override
+                public boolean verify(String hostname, SSLSession session) {
+                    return true;
+                }
+            });
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        OkHttpClient client = builder.build();
+
         // 测试：尝试导出一次空教室数据
         Request request = new Request.Builder()
                 .url("https://jwxt.bistu.edu.cn/jwapp/sys/kxjas/modules/kxjscx/cxkxjs.do")

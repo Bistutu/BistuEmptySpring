@@ -44,7 +44,7 @@ public class AESHelper {
      * 作用：AES加密
      * @param data 待加密内容
      * @param key 加密密钥
-     * @param iv    加密向量
+     * @param iv   加密向量
      * @return 加密数据
      * @throws Exception
      */

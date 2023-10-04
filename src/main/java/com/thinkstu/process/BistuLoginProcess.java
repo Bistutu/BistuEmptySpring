@@ -14,7 +14,6 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
-
 @Slf4j
 /**
  * NOTCLOUD认证
@@ -136,7 +135,6 @@ public class BistuLoginProcess {
                 .connect(login_url)
                 .header("Origin", "http://wxjw.bistu.edu.cn")
                 .header("Referer", "http://wxjw.bistu.edu.cn/authserver/login?service=http://jwxt.bistu.edu.cn/jwapp/sys/emaphome/portal/index.do");
-        System.out.println(login_url);
         Connection.Response login = null;
         try {
             login = con.ignoreContentType(true).followRedirects(false).method(Connection.Method.POST).data(params).cookies(cookies).execute();
