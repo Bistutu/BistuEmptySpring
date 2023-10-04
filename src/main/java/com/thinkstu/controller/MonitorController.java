@@ -39,8 +39,9 @@ public class MonitorController {
                 @PathVariable("forward") String forward,
                 @RequestHeader(value = "X-Forwarded-For", required = false) String ip) {
         String path = pathInitial.getPath() + campus + File.separator + forward + ".json";
-
-        if (campus == 1 || campus == 2 || campus == 5 || campus == 8) {
+        // 获取时段
+        Integer times = Integer.parseInt(forward.substring(forward.length() - 1));
+        if (times == 1 || times == 2 || times == 5 || times == 8) {
             log.info("{}=》第 {} 次访问：{}", ip, count++, forward);    // 访问自增1
             path = pathInitial.getPath() + "1" + File.separator + forward + ".json";
         }
