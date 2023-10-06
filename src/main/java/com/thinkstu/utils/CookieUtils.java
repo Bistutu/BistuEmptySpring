@@ -1,7 +1,6 @@
 package com.thinkstu.utils;
 
 import com.thinkstu.service.*;
-import kotlin.*;
 import lombok.extern.slf4j.*;
 import okhttp3.*;
 import org.springframework.beans.factory.annotation.*;
@@ -120,10 +119,10 @@ public class CookieUtils {
      * 更新 cookie 的值
      */
     String update() throws Exception {
-        // Base64 解码成字符串
-        username = new String(Base64.getDecoder().decode(username));
-        password = new String(Base64.getDecoder().decode(password));
-        String emptyCookie = loginService.loginForEmpty(username, password);
+        String emptyCookie = loginService.loginForEmpty(
+                new String(Base64.getDecoder().decode(username))
+                , new String(Base64.getDecoder().decode(password))
+        );
         // 将新 cookie 写入文件
         File       file = new File(pathUtils.getCookie_file());
         FileWriter fw   = new FileWriter(file, false);
